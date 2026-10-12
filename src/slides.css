@@ -1,0 +1,414 @@
+/* ===== Slide MySQL Database Server – phong cách đơn giản, tông xanh khoa CNTT ===== */
+
+:root {
+  --fit-blue: #12408a;
+  --fit-blue-soft: #eaf0fa;
+  --ink: #1d2433;
+  --muted: #5a6577;
+  --line: #cfd8e6;
+  --code-bg: #f4f6fa;
+
+  --r-background-color: #ffffff;
+  --r-main-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --r-heading-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --r-code-font: Consolas, "Cascadia Mono", "Courier New", monospace;
+  --r-main-font-size: 26px;
+  --r-main-color: var(--ink);
+  --r-heading-color: var(--fit-blue);
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: 700;
+  --r-heading-letter-spacing: 0;
+  --r-heading-line-height: 1.2;
+  --r-link-color: var(--fit-blue);
+}
+
+.reveal {
+  font-weight: 400;
+}
+
+.reveal .slides section {
+  text-align: left;
+  padding: 0 56px;
+  box-sizing: border-box;
+}
+
+/* ----- Tiêu đề từng slide ----- */
+.reveal .slide-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 34px 0 10px;
+  margin-bottom: 22px;
+  border-bottom: 3px solid var(--fit-blue);
+}
+
+.reveal .slide-head h2 {
+  margin: 0;
+  font-size: 38px;
+}
+
+.reveal .slide-head .sec {
+  flex: none;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+/* ----- Danh sách, chữ ----- */
+.reveal ul,
+.reveal ol {
+  display: block;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.reveal li {
+  margin: 7px 0;
+  line-height: 1.35;
+}
+
+.reveal p {
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+/* ----- Khối code ----- */
+.reveal pre {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+  font-size: 0.72em;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+}
+
+.reveal pre code {
+  display: block;
+  padding: 12px 16px;
+  max-height: none;
+  overflow: visible;
+  line-height: 1.5;
+  border: 0;
+  background: transparent;
+  font-size: 1em;
+  color: var(--ink);
+}
+
+/* ----- Bảng ----- */
+.reveal table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.8em;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+}
+
+.reveal table th {
+  background: var(--fit-blue);
+  border-color: var(--fit-blue);
+  color: #fff;
+  font-weight: 600;
+}
+
+.reveal table tbody tr:nth-child(even) td {
+  background: #f7f9fd;
+}
+
+.reveal table td:first-child {
+  font-weight: 600;
+}
+
+.reveal table.plain-first td:first-child {
+  font-weight: 400;
+}
+
+/* ----- Bố cục ----- */
+.cols {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.cols.c-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cols.wide-left {
+  grid-template-columns: 1.35fr 1fr;
+}
+
+.cols.wide-right {
+  grid-template-columns: 1fr 1.35fr;
+}
+
+.stack > * + * {
+  margin-top: 16px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--fit-blue);
+  padding: 12px 18px 8px;
+  background: #fff;
+  font-size: 0.92em;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05em;
+  color: var(--fit-blue);
+}
+
+.note {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--fit-blue-soft);
+  border-left: 5px solid var(--fit-blue);
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.todo {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 2px dashed #b45309;
+  color: #92400e;
+  background: #fffbeb;
+  font-size: 0.85em;
+}
+
+.sub {
+  margin: 0 0 8px;
+  font-size: 0.95em;
+  font-weight: 700;
+  color: var(--fit-blue);
+}
+
+/* ----- Luồng xử lý ----- */
+.flow {
+  display: flex;
+  align-items: stretch;
+}
+
+.flow .step {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1.5px solid var(--fit-blue);
+  background: #fff;
+  text-align: center;
+  font-size: 0.78em;
+  line-height: 1.3;
+}
+
+.flow .step.alt {
+  background: var(--fit-blue-soft);
+}
+
+.flow .arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+  color: var(--fit-blue);
+  font-weight: 700;
+}
+
+.flow-label {
+  margin: 14px 0 6px;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* ----- Sơ đồ kiến trúc ----- */
+.arch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8em;
+}
+
+.arch .tier {
+  padding: 8px 12px 10px;
+  border: 2px solid var(--fit-blue);
+  background: #fff;
+}
+
+.arch .tier-title {
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: var(--fit-blue);
+}
+
+.arch .grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.arch .cell {
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--fit-blue-soft);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.arch .cell small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82em;
+}
+
+.arch .bar {
+  padding: 5px;
+  background: var(--fit-blue);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.arch .down {
+  line-height: 1;
+  text-align: center;
+  color: var(--fit-blue);
+}
+
+/* ----- Chuỗi phiên bản MVCC ----- */
+.chain {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78em;
+}
+
+.chain .row {
+  padding: 8px 12px;
+  border: 1.5px solid var(--fit-blue);
+  background: #fff;
+}
+
+.chain .row.cur {
+  background: var(--fit-blue-soft);
+}
+
+.chain .ptr {
+  padding-left: 18px;
+  color: var(--fit-blue);
+  font-weight: 600;
+}
+
+/* ----- Trang bìa ----- */
+.reveal .cover {
+  padding-top: 0;
+}
+
+.cover .top-bar {
+  height: 14px;
+  margin: 0 -56px 36px;
+  background: var(--fit-blue);
+}
+
+.cover .uni {
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.cover .uni strong {
+  color: var(--fit-blue);
+}
+
+.cover h1 {
+  margin: 46px 0 8px;
+  font-size: 74px;
+}
+
+.cover .lead {
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.cover .meta {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1.7;
+}
+
+.cover img.logo {
+  height: 84px;
+  margin-bottom: 10px;
+}
+
+/* ----- Chân trang cố định ----- */
+.fit-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 24px;
+  border-top: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.reveal .slide-number {
+  right: 20px;
+  bottom: 7px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  z-index: 31;
+}
+
+.reveal .progress {
+  height: 4px;
+  color: var(--fit-blue);
+}
+
+.reveal .controls {
+  bottom: 44px;
+}
+
+/* ----- Slide cuối: căn giữa ----- */
+.thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 560px;
+  text-align: center;
+}
+
+.cover .thanks h1 {
+  margin: 0;
+  font-size: 54px;
+}
+
+.thanks .qa {
+  margin-top: 28px;
+  font-size: 30px;
+  color: var(--muted);
+}
