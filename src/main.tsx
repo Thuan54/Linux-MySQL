@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
-import 'reveal.js/reveal.css';
-import 'reveal.js/theme/black.css';
 
 import App from './App';
 

@@ -1,16 +1,40 @@
 import { Deck } from '@revealjs/react';
 
 import TitleSlide from './slides/TitleSlide';
+import MembersSlide from './slides/MembersSlide';
 import AgendaSlide from './slides/AgendaSlide';
 import ArchitectureSlide from './slides/ArchitectureSlide';
-import QueryLifecycleSlide from './slides/QueryLifecycleSlide';
+import ServerLayerSlide from './slides/ServerLayerSlide';
 import StorageEngineSlide from './slides/StorageEngineSlide';
-import InnoDBSlide from './slides/InnoDBSlide';
-import TransactionsSlide from './slides/TransactionsSlide';
-import IndexesSlide from './slides/IndexesSlide';
-import ReplicationSlide from './slides/ReplicationSlide';
-import PerformanceSlide from './slides/PerformanceSlide';
+import InnoDBVsMyISAMSlide from './slides/InnoDBVsMyISAMSlide';
+import AccountSlide from './slides/AccountSlide';
+import AccessControlSlide from './slides/AccessControlSlide';
+import PrivilegeLevelsSlide from './slides/PrivilegeLevelsSlide';
+import GrantRevokeSlide from './slides/GrantRevokeSlide';
+import PrivilegeSecuritySlide from './slides/PrivilegeSecuritySlide';
+import LogOverviewSlide from './slides/LogOverviewSlide';
+import BinlogIntroSlide from './slides/BinlogIntroSlide';
+import BinlogFormatSlide from './slides/BinlogFormatSlide';
+import BinlogCommandsSlide from './slides/BinlogCommandsSlide';
+import SlowLogParamsSlide from './slides/SlowLogParamsSlide';
+import SlowLogEntrySlide from './slides/SlowLogEntrySlide';
+import MysqldumpslowSlide from './slides/MysqldumpslowSlide';
+import TransactionSlide from './slides/TransactionSlide';
+import AcidSlide from './slides/AcidSlide';
+import DurabilitySlide from './slides/DurabilitySlide';
+import PhenomenaSlide from './slides/PhenomenaSlide';
+import IsolationLevelsSlide from './slides/IsolationLevelsSlide';
+import MvccSlide from './slides/MvccSlide';
+import LogComparisonSlide from './slides/LogComparisonSlide';
+import LowRamSlide from './slides/LowRamSlide';
+import Demo1InstallSlide from './slides/Demo1InstallSlide';
+import Demo1UserSlide from './slides/Demo1UserSlide';
+import Demo2SlowLogSlide from './slides/Demo2SlowLogSlide';
+import Demo3BackupSlide from './slides/Demo3BackupSlide';
+import Demo4TroubleshootSlide from './slides/Demo4TroubleshootSlide';
 import ConclusionSlide from './slides/ConclusionSlide';
+import ReferencesSlide from './slides/ReferencesSlide';
+import ThanksSlide from './slides/ThanksSlide';
 
 export default function App() {
   return (
@@ -31,16 +55,40 @@ export default function App() {
       }}
     >
       <TitleSlide />
+      <MembersSlide />
       <AgendaSlide />
       <ArchitectureSlide />
-      <QueryLifecycleSlide />
+      <ServerLayerSlide />
       <StorageEngineSlide />
-      <InnoDBSlide />
-      <TransactionsSlide />
-      <IndexesSlide />
-      <ReplicationSlide />
-      <PerformanceSlide />
+      <InnoDBVsMyISAMSlide />
+      <AccountSlide />
+      <AccessControlSlide />
+      <PrivilegeLevelsSlide />
+      <GrantRevokeSlide />
+      <PrivilegeSecuritySlide />
+      <LogOverviewSlide />
+      <BinlogIntroSlide />
+      <BinlogFormatSlide />
+      <BinlogCommandsSlide />
+      <SlowLogParamsSlide />
+      <SlowLogEntrySlide />
+      <MysqldumpslowSlide />
+      <TransactionSlide />
+      <AcidSlide />
+      <DurabilitySlide />
+      <PhenomenaSlide />
+      <IsolationLevelsSlide />
+      <MvccSlide />
+      <LogComparisonSlide />
+      <LowRamSlide />
+      <Demo1InstallSlide />
+      <Demo1UserSlide />
+      <Demo2SlowLogSlide />
+      <Demo3BackupSlide />
+      <Demo4TroubleshootSlide />
       <ConclusionSlide />
+      <ReferencesSlide />
+      <ThanksSlide />
     </Deck>
   );
 }
