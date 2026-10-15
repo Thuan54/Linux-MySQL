@@ -1,1 +1,55 @@
-@import "tailwindcss";
+/*
+ * Thứ tự layer: theme < base (preflight) < reveal < components < utilities.
+ * reveal.js nằm trong layer riêng để các class Tailwind (utilities) luôn ghi đè được style của reveal.
+ */
+@layer theme, base, reveal, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "../node_modules/reveal.js/dist/reveal.css" layer(reveal);
+@import "../node_modules/reveal.js/dist/theme/white.css" layer(reveal);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Bảng màu: tông xanh của khoa CNTT. Dùng như text-fit, bg-fit-soft, border-line, ... */
+@theme {
+  --color-fit: #12408a;
+  --color-fit-soft: #eaf0fa;
+  --color-ink: #1d2433;
+  --color-muted: #5a6577;
+  --color-line: #cfd8e6;
+  --color-code: #f4f6fa;
+}
+
+/* Chỉnh biến của reveal.js và các thành phần do reveal.js tự sinh (không có trong JSX) */
+@layer components {
+  :root {
+    --r-background-color: #ffffff;
+    --r-main-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --r-heading-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --r-main-font-size: 26px;
+    --r-main-color: var(--color-ink);
+    --r-heading-color: var(--color-fit);
+    --r-heading-text-transform: none;
+    --r-heading-font-weight: 700;
+    --r-heading-letter-spacing: 0;
+    --r-link-color: var(--color-fit);
+  }
+
+  .reveal .slide-number {
+    right: 20px;
+    bottom: 7px;
+    background: transparent;
+    color: var(--color-muted);
+    font-size: 14px;
+    z-index: 31;
+  }
+
+  .reveal .progress {
+    height: 4px;
+    color: var(--color-fit);
+  }
+
+  .reveal .controls {
+    bottom: 44px;
+  }
+}

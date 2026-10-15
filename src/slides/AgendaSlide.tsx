@@ -1,41 +1,40 @@
-import SlideLayout from '../components/SlideLayout';
-
-const topics = [
-  ['01', 'Server architecture', 'What happens inside mysqld?'],
-  ['02', 'Query lifecycle', 'From SQL text to execution plan'],
-  ['03', 'InnoDB internals', 'Pages, buffer pool, redo and undo'],
-  ['04', 'Transactions', 'ACID, MVCC and locking'],
-  ['05', 'Indexes', 'B+ trees and access paths'],
-  ['06', 'Performance', 'EXPLAIN, slow queries and bottlenecks'],
-];
+import SlideFrame from '../components/SlideFrame'
+import Ul from '../components/Ul'
+import Note from '../components/Note'
+import Sub from '../components/Sub'
+import Cols from '../components/Cols'
+import { SEC } from '../data/sections'
 
 export default function AgendaSlide() {
   return (
-    <SlideLayout
-      eyebrow="The roadmap"
-      title="What we will explore"
-      subtitle="Follow a query through the database, then investigate how MySQL keeps data correct and fast."
-    >
-      <div className="grid grid-cols-2 gap-4">
-        {topics.map(([number, title, description]) => (
-          <div
-            key={number}
-            className="flex gap-4 rounded-xl border border-white/10 bg-white/5 p-4"
-          >
-            <span className="text-xl font-bold text-cyan-400">
-              {number}
-            </span>
-            <div>
-              <h3 className="text-lg font-semibold text-white">
-                {title}
-              </h3>
-              <p className="mt-1 text-sm text-slate-400">
-                {description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </SlideLayout>
-  );
+    <SlideFrame title="Nội dung trình bày" sec={SEC.intro}>
+      <Cols>
+        <div>
+          <Sub>Phần lý thuyết</Sub>
+          <Ul
+            ordered
+            items={[
+              'Kiến trúc MySQL: Server Layer và Storage Engine (InnoDB so với MyISAM)',
+              'Quản lý người dùng và phân quyền (`GRANT` / `REVOKE`)',
+              'Cơ chế nhật ký: Binary Log và Slow Query Log',
+              'Transaction và tính chất ACID trong InnoDB',
+            ]}
+          />
+        </div>
+        <div>
+          <Sub>Phần demo</Sub>
+          <Ul
+            ordered
+            items={[
+              'Cài đặt và bảo mật (`mysql_secure_installation`, kết nối từ xa)',
+              'Phân tích truy vấn chậm (`slow_query_log`, `mysqldumpslow`)',
+              'Sao lưu và phục hồi (`mysqldump`)',
+              'Troubleshooting: sai quyền sở hữu `/var/lib/mysql`',
+            ]}
+          />
+        </div>
+      </Cols>
+      <Note>Hạ tầng: 1 máy ảo Ubuntu Server, 1 GB RAM.</Note>
+    </SlideFrame>
+  )
 }
