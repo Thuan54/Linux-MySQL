@@ -1,11 +1,11 @@
 import SlideFrame from '../components/SlideFrame'
 import Ul from '../components/Ul'
-import Flow from '../components/Flow'
-import FlowLabel from '../components/FlowLabel'
 import P from '../components/P'
 import Cols from '../components/Cols'
 import Stack from '../components/Stack'
 import Card from '../components/Card'
+import Flow from '../components/Flow'
+import FlowLabel from '../components/FlowLabel'
 import { SEC } from '../data/sections'
 
 export default function BinlogIntroSlide() {
@@ -15,10 +15,8 @@ export default function BinlogIntroSlide() {
         <Card title="Binary log là gì">
           <Ul
             items={[
-              'Các file nhị phân ghi lại event thay đổi dữ liệu và cấu trúc: `INSERT`, `UPDATE`, `DELETE`, DDL',
-              'Không ghi `SELECT`, `SHOW`',
-              'Đọc bằng công cụ `mysqlbinlog`',
-              'Từ 8.0 bật mặc định; `binlog_expire_logs_seconds` mặc định 30 ngày',
+              'Ghi lại các thay đổi dữ liệu (`INSERT`, `UPDATE`, `DELETE`) và thay đổi cấu trúc bảng (`CREATE`, `ALTER`, `DROP`)',
+              'Không ghi các câu truy vấn chỉ đọc như `SELECT`, `SHOW`',
             ]}
           />
         </Card>
@@ -27,13 +25,23 @@ export default function BinlogIntroSlide() {
             <P>Source ghi event vào binlog, Replica đọc và thực hiện lại để đồng bộ dữ liệu.</P>
           </Card>
           <Card title="Point-in-time recovery (PITR)">
-            <P>Restore bản full backup, rồi replay binlog đến đúng thời điểm mong muốn (ví dụ ngay trước khi lỡ `DROP TABLE`).</P>
+            <P>
+              Khôi phục database về đúng thời điểm mong muốn khi gặp sự cố.
+            </P>
           </Card>
         </Stack>
       </Cols>
-      <FlowLabel>Quy trình PITR</FlowLabel>
+
+      <FlowLabel>Quy trình PITR phục hồi sự cố</FlowLabel>
       <Flow
-        steps={['Full backup (`mysqldump`)', 'Restore', 'Replay binlog bằng `mysqlbinlog`', 'Dừng ở thời điểm mong muốn']}
+        steps={[
+          '00:00 sáng: Full backup (`mysqldump`)',
+          'Thời điểm trong ngày: Lệnh SQL làm sai / mất dữ liệu',
+          'Restore lại bản full backup lúc 00:00',
+          'Replay binlog từ 00:00 đến ngay trước thời điểm lỗi',
+          'Khôi phục DB toàn vẹn tại thời điểm mong muốn',
+        ]}
+        alt={[1, 3]}
       />
     </SlideFrame>
   )
