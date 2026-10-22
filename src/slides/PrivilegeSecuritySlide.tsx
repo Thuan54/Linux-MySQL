@@ -34,7 +34,6 @@ export default function PrivilegeSecuritySlide() {
               'Least privilege: chỉ cấp quyền tối thiểu cần thiết (ví dụ ứng dụng chỉ cần `SELECT`, `INSERT`, `UPDATE`, `DELETE` trên đúng một database)',
               'Giới hạn host: gán user theo IP cụ thể thay vì `%`, kết hợp firewall chỉ mở cổng 3306 cho IP đó',
               '`REQUIRE SSL`: mã hóa đường truyền, tránh lộ mật khẩu và dữ liệu',
-              'Không dùng `root` cho ứng dụng',
             ]}
           />
         </div>
