@@ -23,12 +23,7 @@ import ConsistencySlide from './slides/ConsistencySlide';
 import IsolationPhenomenaSlide from './slides/IsolationPhenomenaSlide';
 import IsolationLevelsSlide from './slides/IsolationLevelsSlide';
 import DurabilitySlide from './slides/DurabilitySlide';
-import LowRamSlide from './slides/LowRamSlide';
-import Demo1InstallSlide from './slides/Demo1InstallSlide';
-import Demo1UserSlide from './slides/Demo1UserSlide';
-import Demo2SlowLogSlide from './slides/Demo2SlowLogSlide';
-import Demo3BackupSlide from './slides/Demo3BackupSlide';
-import Demo4TroubleshootSlide from './slides/Demo4TroubleshootSlide';
+import VideoSlides from './slides/VideoSlides';
 import ConclusionSlide from './slides/ConclusionSlide';
 import ReferencesSlide from './slides/ReferencesSlide';
 import ThanksSlide from './slides/ThanksSlide';
@@ -74,12 +69,7 @@ export default function App() {
       <IsolationPhenomenaSlide />
       <IsolationLevelsSlide />
       <DurabilitySlide />
-      <LowRamSlide />
-      <Demo1InstallSlide />
-      <Demo1UserSlide />
-      <Demo2SlowLogSlide />
-      <Demo3BackupSlide />
-      <Demo4TroubleshootSlide />
+      <VideoSlides />
       <ConclusionSlide />
       <ReferencesSlide />
       <ThanksSlide />
