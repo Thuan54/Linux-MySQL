@@ -58,11 +58,8 @@ export default function ArchitectureSlide() {
         <div>
           <Ul
             items={[
-              'Server Layer xử lý câu lệnh SQL, không phụ thuộc engine',
-              'Storage Engine lưu trữ và truy xuất dữ liệu thực tế',
-              'Hai tầng giao tiếp qua một API chung: đổi engine mà không đổi cách viết SQL',
-              'Có thể chọn engine riêng cho từng bảng',
-              'Transaction, row lock, foreign key do engine quyết định, không phải Server Layer',
+              'Server Layer chịu trách nhiệm quản lý kết nối, xác thực, phân quyền và tiền xử lý câu lệnh SQL trước khi gọi xuống tầng dưới',
+              'Storage Engine chịu trách nhiệm lưu trữ và truy xuất dữ liệu',
             ]}
           />
         </div>

@@ -20,7 +20,6 @@ export default function AccountSlide() {
         items={[
           'Cùng tên user nhưng khác host là hai tài khoản khác nhau, có mật khẩu và quyền riêng',
           "Ví dụ: `'demo'@'localhost'` và `'demo'@'192.168.1.10'`",
-          'Khi nhiều dòng cùng khớp, MySQL chọn tài khoản có host cụ thể nhất',
         ]}
       />
     </SlideFrame>
