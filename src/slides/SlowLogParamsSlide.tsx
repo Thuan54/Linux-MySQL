@@ -6,26 +6,23 @@ import { SEC } from '../data/sections'
 
 export default function SlowLogParamsSlide() {
   return (
-    <SlideFrame title="Slow Query Log: các tham số" sec={SEC.log}>
+    <SlideFrame title="Slow Query Log: khái niệm và các tham số" sec={SEC.log}>
+      <div className="mb-3 border-l-4 border-fit bg-fit-soft/60 px-4 py-2 text-[0.88em]">
+        <strong>Khái niệm & mục đích:</strong> Nhật ký ghi lại các câu SQL thực thi lâu hơn ngưỡng thời gian quy định hoặc không dùng index &mdash; công cụ hàng đầu giúp phát hiện điểm nghẽn hiệu năng (bottleneck) và tối ưu truy vấn.
+      </div>
       <Table
         head={['Tham số', 'Ý nghĩa', 'Mặc định']}
         widths={['34%', '44%', '22%']}
         rows={[
-          ['`slow_query_log`', 'Bật/tắt Slow Query Log', 'OFF'],
-          ['`slow_query_log_file`', 'Đường dẫn file log', 'host_name-slow.log (trong datadir)'],
-          ['`long_query_time`', 'Ngưỡng thời gian (giây): query chạy lâu hơn sẽ được ghi', '10'],
-          ['`log_queries_not_using_indexes`', 'Ghi cả query không dùng index dù chạy nhanh', 'OFF'],
-          ['`min_examined_row_limit`', 'Chỉ ghi nếu quét ít nhất N dòng', '0'],
-          ['`log_output`', 'Ghi ra FILE hoặc TABLE', 'FILE'],
+          ['`slow_query_log`', 'Bật (1/ON) hoặc tắt (0/OFF) ghi log', 'OFF'],
+          ['`slow_query_log_file`', 'Đường dẫn file lưu log', 'host_name-slow.log (trong datadir)'],
+          ['`long_query_time`', 'Ngưỡng thời gian (giây): chạy lâu hơn sẽ bị ghi lại', '10 (khuyến nghị 1-2s)'],
+          ['`log_queries_not_using_indexes`', 'Ghi nhận cả query không dùng index dù chạy nhanh', 'OFF'],
+          ['`log_output`', 'Định dạng đích xuất log: ghi ra `FILE` hoặc `TABLE`', 'FILE'],
         ]}
       />
-      <div className="mt-[16px]">
-        <Code>{`SHOW VARIABLES LIKE 'slow_query_log%';
-    SHOW VARIABLES LIKE 'long_query_time';`}</Code>
-      </div>
       <Note>
-        `SET GLOBAL long_query_time` chỉ áp dụng cho kết nối mới và mất khi restart; muốn cấu hình bền vững,
-        ghi vào file cấu hình (`mysqld.cnf`).
+        Cấu hình bằng `SET GLOBAL` chỉ áp dụng cho kết nối mới và mất khi restart; muốn bền vững, ghi vào file cấu hình (`mysqld.cnf`).
       </Note>
     </SlideFrame>
   )

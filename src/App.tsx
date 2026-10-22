@@ -15,17 +15,14 @@ import PrivilegeSecuritySlide from './slides/PrivilegeSecuritySlide';
 import LogOverviewSlide from './slides/LogOverviewSlide';
 import BinlogIntroSlide from './slides/BinlogIntroSlide';
 import BinlogFormatSlide from './slides/BinlogFormatSlide';
-import BinlogCommandsSlide from './slides/BinlogCommandsSlide';
 import SlowLogParamsSlide from './slides/SlowLogParamsSlide';
-import SlowLogEntrySlide from './slides/SlowLogEntrySlide';
-import MysqldumpslowSlide from './slides/MysqldumpslowSlide';
+import SlowLogCaseStudySlide from './slides/SlowLogCaseStudySlide';
 import TransactionSlide from './slides/TransactionSlide';
-import AcidSlide from './slides/AcidSlide';
-import DurabilitySlide from './slides/DurabilitySlide';
-import PhenomenaSlide from './slides/PhenomenaSlide';
+import AtomicitySlide from './slides/AtomicitySlide';
+import ConsistencySlide from './slides/ConsistencySlide';
+import IsolationPhenomenaSlide from './slides/IsolationPhenomenaSlide';
 import IsolationLevelsSlide from './slides/IsolationLevelsSlide';
-import MvccSlide from './slides/MvccSlide';
-import LogComparisonSlide from './slides/LogComparisonSlide';
+import DurabilitySlide from './slides/DurabilitySlide';
 import LowRamSlide from './slides/LowRamSlide';
 import Demo1InstallSlide from './slides/Demo1InstallSlide';
 import Demo1UserSlide from './slides/Demo1UserSlide';
@@ -69,17 +66,14 @@ export default function App() {
       <LogOverviewSlide />
       <BinlogIntroSlide />
       <BinlogFormatSlide />
-      <BinlogCommandsSlide />
       <SlowLogParamsSlide />
-      <SlowLogEntrySlide />
-      <MysqldumpslowSlide />
+      <SlowLogCaseStudySlide />
       <TransactionSlide />
-      <AcidSlide />
-      <DurabilitySlide />
-      <PhenomenaSlide />
+      <AtomicitySlide />
+      <ConsistencySlide />
+      <IsolationPhenomenaSlide />
       <IsolationLevelsSlide />
-      <MvccSlide />
-      <LogComparisonSlide />
+      <DurabilitySlide />
       <LowRamSlide />
       <Demo1InstallSlide />
       <Demo1UserSlide />

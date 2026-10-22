@@ -1,39 +1,50 @@
 import SlideFrame from '../components/SlideFrame'
-import Ul from '../components/Ul'
-import Table from '../components/Table'
-import Sub from '../components/Sub'
 import Cols from '../components/Cols'
-import Stack from '../components/Stack'
+import Card from '../components/Card'
+import Ul from '../components/Ul'
+import Flow from '../components/Flow'
+import FlowLabel from '../components/FlowLabel'
 import { SEC } from '../data/sections'
 
 export default function DurabilitySlide() {
   return (
-    <SlideFrame title="Durability: redo log và crash recovery" sec={SEC.txn}>
-      <Cols>
-        <div>
+    <SlideFrame title="Durability: Tính bền vững" sec={SEC.txn}>
+      {/* 1. Khái niệm: 1 câu duy nhất */}
+      <div className="mb-4 border-l-4 border-fit bg-fit-soft/70 px-4 py-2 text-[0.9em]">
+        <strong>Khái niệm:</strong> Đã <code>COMMIT</code> thì dữ liệu không bao giờ bị mất, kể cả khi máy chủ mất điện hay crash.
+      </div>
+
+      <Cols layout="even">
+        <Card title="Nguyên lý WAL (Write-Ahead Logging)">
           <Ul
-            ordered
             items={[
-              'Thay đổi được thực hiện trên data page trong Buffer Pool',
-              'Khi `COMMIT`, InnoDB ghi redo log xuống đĩa trước (ghi tuần tự, nhanh)',
-              'Data page được ghi xuống file `.ibd` sau đó (checkpoint)',
-              'Nếu server crash, khi khởi động lại InnoDB đọc redo log để áp dụng lại các thay đổi chưa kịp ghi vào data file (crash recovery)',
+              'Ghi tuần tự thay đổi vào **Redo Log** trên đĩa trước khi báo COMMIT thành công',
+              'Đảm bảo tốc độ ghi cực nhanh mà không cần chờ đồng bộ toàn bộ file dữ liệu',
             ]}
           />
-        </div>
-        <Stack>
-          <Sub>`innodb_flush_log_at_trx_commit`</Sub>
-          <Table
-            head={['Giá trị', 'Hành vi', 'Rủi ro']}
-            widths={['16%', '46%', '38%']}
-            rows={[
-              ['1 (mặc định)', 'Ghi và flush xuống đĩa mỗi lần commit', 'An toàn, đúng ACID'],
-              ['2', 'Ghi vào OS cache mỗi commit, flush mỗi giây', 'Mất khoảng 1 giây dữ liệu nếu OS/máy crash'],
-              ['0', 'Ghi và flush mỗi giây', 'Mất dữ liệu gần nhất nếu `mysqld` crash'],
+        </Card>
+
+        <Card title="Tự động phục hồi (Crash Recovery)">
+          <Ul
+            items={[
+              'Khi server khởi động lại sau sự cố, InnoDB tự động đọc **Redo Log**',
+              'Phục hồi (Replay) lại toàn bộ giao dịch đã COMMIT trước lúc sập nguồn',
             ]}
           />
-        </Stack>
+        </Card>
       </Cols>
+
+      {/* Sơ đồ 4 bước súc tích */}
+      <FlowLabel>Quy trình bảo toàn dữ liệu khi có sự cố</FlowLabel>
+      <Flow
+        steps={[
+          '1. Giao dịch COMMIT',
+          '2. Ghi Redo Log xuống đĩa',
+          '3. Bất ngờ sập nguồn',
+          '4. Replay Redo Log phục hồi',
+        ]}
+        alt={[1, 3]}
+      />
     </SlideFrame>
   )
 }

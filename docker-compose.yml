@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_seminar
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: demo_db
+    ports:
+      # Máy chủ đã có service MySQL chạy ở cổng 3306, ánh xạ ra 3307 để không bị xung đột
+      - "3307:3306"
+    volumes:
+      - ./docker/conf.d:/etc/mysql/conf.d
+      - ./docker/init:/docker-entrypoint-initdb.d
+      - ./docker/logs:/var/log/mysql
+      - ./docker/backups:/backups
+      - mysql_seminar_data:/var/lib/mysql
+
+volumes:
+  mysql_seminar_data:
