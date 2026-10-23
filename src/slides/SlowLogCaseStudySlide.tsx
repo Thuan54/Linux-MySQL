@@ -25,11 +25,11 @@ ORDER BY created_at DESC;`}</Code>
           </div>
         </Card>
 
-        <Card title="2. Nguyên nhân & Hướng xử lý">
+        <Card title="2. Phân tích & Hướng xử lý">
           <Ul
             items={[
-              'Nguyên nhân: Bảng dữ liệu lớn nhưng chưa có index phù hợp, câu lệnh phải quét toàn bộ bảng',
-              'Hướng xử lý: Dùng EXPLAIN phân tích và tạo thêm index cho các cột tìm kiếm',
+              'Phân tích & Nguyên nhân: Dùng `EXPLAIN` phát hiện bảng lớn chưa có index, lệnh phải quét toàn bộ bảng',
+              'Hướng xử lý: Tạo thêm index cho cột tìm kiếm (`user_id`, `created_at`)',
               'Kết quả: Truy vấn chạy tức thì, CPU máy chủ hạ nhiệt, hệ thống mượt mà trở lại',
             ]}
           />
