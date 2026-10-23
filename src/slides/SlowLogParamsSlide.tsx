@@ -1,5 +1,4 @@
 import SlideFrame from '../components/SlideFrame'
-import Code from '../components/Code'
 import Table from '../components/Table'
 import Note from '../components/Note'
 import { SEC } from '../data/sections'

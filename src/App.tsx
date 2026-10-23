@@ -10,7 +10,6 @@ import InnoDBVsMyISAMSlide from './slides/InnoDBVsMyISAMSlide';
 import AccountSlide from './slides/AccountSlide';
 import AccessControlSlide from './slides/AccessControlSlide';
 import PrivilegeLevelsSlide from './slides/PrivilegeLevelsSlide';
-import GrantRevokeSlide from './slides/GrantRevokeSlide';
 import PrivilegeSecuritySlide from './slides/PrivilegeSecuritySlide';
 import LogOverviewSlide from './slides/LogOverviewSlide';
 import BinlogIntroSlide from './slides/BinlogIntroSlide';
@@ -56,7 +55,6 @@ export default function App() {
       <AccountSlide />
       <AccessControlSlide />
       <PrivilegeLevelsSlide />
-      <GrantRevokeSlide />
       <PrivilegeSecuritySlide />
       <LogOverviewSlide />
       <BinlogIntroSlide />

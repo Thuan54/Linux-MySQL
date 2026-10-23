@@ -3,8 +3,6 @@ import Cols from '../components/Cols'
 import Card from '../components/Card'
 import Code from '../components/Code'
 import Ul from '../components/Ul'
-import Flow from '../components/Flow'
-import FlowLabel from '../components/FlowLabel'
 import { SEC } from '../data/sections'
 
 export default function AtomicitySlide() {
