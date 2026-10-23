@@ -12,7 +12,7 @@ export default function SlideFrame({ title, sec, children }: Props) {
   return (
     <Slide>
       <div className="flex h-[720px] flex-col px-14 text-left">
-        <div className="mb-[22px] flex items-baseline justify-between gap-6 border-b-[3px] border-fit pt-[34px] pb-2.5">
+        <div className="mb-[18px] flex items-baseline justify-between gap-6 border-b-[3px] border-fit pt-[28px] pb-2.5">
           <h2 className="m-0 text-[38px] leading-tight font-bold tracking-normal text-fit normal-case">
             {title}
           </h2>

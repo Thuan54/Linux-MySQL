@@ -16,13 +16,15 @@ export default function AtomicitySlide() {
               'Không bao giờ để dữ liệu ở trạng thái dở dang nếu xảy ra lỗi',
             ]}
           />
+          <div className="my-1.5">
             <Code>{`START TRANSACTION;
-
-UPDATE account SET balance = balance - 100 WHERE id = 1;
-UPDATE account SET balance = balance + 100 WHERE id = 2;
-
-COMMIT; -- Hoặc ROLLBACK nếu có lỗi`}</Code>
-          <p className="mt-2 text-[0.84em] text-muted">
+UPDATE account
+  SET balance = balance - 100 WHERE id = 1;
+UPDATE account
+  SET balance = balance + 100 WHERE id = 2;
+COMMIT; -- hoặc ROLLBACK nếu lỗi`}</Code>
+          </div>
+          <p className="mt-1 text-[0.82em] text-muted">
             Nếu mất điện giữa chừng, tài khoản 1 sẽ không bị trừ tiền oan.
           </p>
         </Card>
@@ -30,10 +32,8 @@ COMMIT; -- Hoặc ROLLBACK nếu có lỗi`}</Code>
         <Card title="2. Cơ chế hiện thực của InnoDB">
           <Ul
             items={[
-              'Lệnh `COMMIT`: Xác nhận ghi nhận toàn bộ thay đổi thành chính thức',
-              'Lệnh `ROLLBACK`: Hủy bỏ toàn bộ thao tác, khôi phục trạng thái cũ',
               'Vũ khí cốt lõi — Undo Log: Trước khi sửa dữ liệu, InnoDB luôn lưu bản sao giá trị cũ vào Undo Log',
-              'Khi rollback hoặc crash, InnoDB đọc Undo Log để hoàn tác dữ liệu',
+              'Tự động hoàn tác: Khi xảy ra lỗi hoặc sự cố, InnoDB đọc Undo Log để rollback dữ liệu về trạng thái ban đầu',
             ]}
           />
         </Card>

@@ -1,6 +1,5 @@
 import SlideFrame from '../components/SlideFrame'
 import Table from '../components/Table'
-import Code from '../components/Code'
 import Note from '../components/Note'
 import { SEC } from '../data/sections'
 
@@ -25,16 +24,10 @@ export default function IsolationLevelsSlide() {
         ]}
       />
 
-      <div className="mt-3.5 flex items-center justify-between gap-6">
-        <div className="flex-1">
-          <Note>
-            <strong>MVCC (Multi-Version Concurrency Control):</strong> InnoDB dùng Undo Log để lưu các phiên bản cũ của dòng dữ liệu, giúp <em>&ldquo;Đọc không chặn Ghi, Ghi không chặn Đọc&rdquo;</em> mà vẫn đảm bảo tính cô lập!
-          </Note>
-        </div>
-        <div className="w-[420px] shrink-0">
-          <Code>{`SELECT @@transaction_isolation;
-SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;`}</Code>
-        </div>
+      <div className="mt-4">
+        <Note>
+          <strong>MVCC (Multi-Version Concurrency Control):</strong> InnoDB dùng Undo Log để lưu các phiên bản cũ của dòng dữ liệu, giúp <em>&ldquo;Đọc không chặn Ghi, Ghi không chặn Đọc&rdquo;</em> mà vẫn đảm bảo tính cô lập!
+        </Note>
       </div>
     </SlideFrame>
   )
